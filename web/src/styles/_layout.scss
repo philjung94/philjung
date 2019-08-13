@@ -1,14 +1,20 @@
 @import "_variables";
 
-body {
+body, div {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: $ff-font__primary;
+  color: $color-gray__1;
+}
+
+p {
+  margin: 0.5rem;
 }
 
 %layout-container {
   max-width: $layout-max-width;
   margin: 0 auto;
+  background-color: #2c2c36;
 }
 
 .layout-container__flex {
@@ -23,3 +29,6 @@ body {
   max-width: $layout-linelength-width;
 }
 
+.gatsby-image-wrapper img {
+   object-fit: contain !important; // !important to override the element style
+}

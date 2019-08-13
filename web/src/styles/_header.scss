@@ -1,0 +1,26 @@
+@import "_variables";
+
+.c-header-title {
+  font-size: $ff-size__sm;
+  @media(min-width: $m-min-width__md) {
+    font-size: $ff-size__md;
+  }
+  @media(min-width: $m-min-width__lg) {
+    font-size: $ff-size__lg;
+  }
+}
+
+.c-header-container {
+  background-color: #2c2c36;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 4rem;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}

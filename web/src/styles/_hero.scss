@@ -1,0 +1,50 @@
+
+.c-hero-container__flex {
+  background-color: rgba(80, 80, 80, 0.4); /* Debug container  */
+  width: 100vw;
+  height: 75vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  p {
+    color: white;
+    z-index: 1;
+  }
+}
+
+.c-hero-bg__lg {
+  position: absolute;
+  top: 3rem;
+  z-index: 0;
+}
+
+#my-hero_svg__my-hero-alien {
+  position: absolute;
+  animation: jiggle 5s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-100vw);
+  }
+  80% {
+    transform: translateX(200vw);
+  }
+  100% {
+    transform: translateX(250vw);
+  }
+}
+
+@keyframes jiggle {
+  33% {
+    transform: translate(5vw, 7vw);
+  }
+  66% {
+    transform: translate(7vw, -5vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}

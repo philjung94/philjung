@@ -1,0 +1,31 @@
+@import "_variables";
+
+.c-btn__default {
+  cursor: pointer;
+  display: inline-block;
+  font-family: $ff-font__primary;
+  min-height: 1em;
+
+  outline: none;
+  border: none;
+  background-color: #E0E1E2;
+  color: rgb(80, 80, 80);
+
+  vertical-align: middle;
+
+  margin: 0;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-size: $ff-size__md;
+  font-weight: bold;
+  line-height: 1rem;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+
+  user-select: none;
+  /*transition: @transition;*/
+  /*will-change: @willChange;*/
+
+  -webkit-tap-highlight-color: lightblue;
+}

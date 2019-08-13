@@ -1,13 +1,14 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
-import "../styles/component-header.scss"
+import Img from "gatsby-image"
+import "../styles/_header.scss"
 
-const Header = ({ siteTitle }) => (
-  <header className="component-header">
-    <h1>
+const Header = ({ site }) => (
+  <header className="c-header-container">
+    <h1 className="c-header-title">
       <Link to="/">
-        {siteTitle}
+        {site.siteMetadata.title}
       </Link>
     </h1>
   </header>

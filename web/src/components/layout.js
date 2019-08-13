@@ -2,11 +2,11 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
-import "../styles/layout-main.scss"
+import "../styles/_layout.scss"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query layoutQuery {
       site {
         siteMetadata {
           title
@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="layout-container__flex">
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header {...data} />
       {children}
     </div>
   )
