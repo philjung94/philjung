@@ -1,0 +1,16 @@
+.component-header {
+  background: #2c2c36;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+}

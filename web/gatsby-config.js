@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `@philjung94`,
+    description: `Phil Jung's website.`,
+    author: `@philjung94`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,8 +27,21 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        include: /images/,
+        prettier: true,          // use prettier to format JS code output (default)
+        svgo: true,              // use svgo to optimize SVGs (default)
+        svgoConfig: {
+          plugins: {
+            removeViewBox: false, // remove viewBox when possible (default)
+            cleanupIDs: true,    // remove unused IDs and minify remaining IDs (default)
+          },
+        },
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }

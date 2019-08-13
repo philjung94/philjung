@@ -1,0 +1,25 @@
+@import "_variables";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+%layout-container {
+  max-width: $layout-max-width;
+  margin: 0 auto;
+}
+
+.layout-container__flex {
+  @extend %layout-container;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.layout-container__linelength {
+  max-width: $layout-linelength-width;
+}
+
