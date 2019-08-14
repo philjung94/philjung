@@ -26,21 +26,21 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-c969aef9d0f2eccbe383.js"
+    "url": "webpack-runtime-3161634e57f3aa6f3611.js"
   },
   {
-    "url": "app-027eae806ddcaa494534.js"
+    "url": "app-d2d917a7830713038383.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-5aa7007c0c0eadb6965c.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "7878f4d2922fd403376e0bd42f42056f"
+    "revision": "6bf0817042594114f35570b5fd23c1cf"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "9da9e4872c821bf75d8893d7d5f76ff3"
+    "revision": "461b10b0bafe1111e2a7bcec66062385"
   },
   {
     "url": "manifest.webmanifest",
@@ -63,12 +63,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/reponame`), ``)
+  pathname = pathname.replace(new RegExp(`^/philjung`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/reponame/app-027eae806ddcaa494534.js`))) {
+  if (!resources || !(await caches.match(`/philjung/app-d2d917a7830713038383.js`))) {
     return await fetch(event.request)
   }
 
@@ -81,7 +81,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/reponame/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/philjung/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
