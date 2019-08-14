@@ -24,6 +24,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2",
     "webpack": "^4.0.0"
   },
@@ -38,7 +39,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "ghp": "yarn build && rm -rf ../docs/* && cp -r public ../ && mv ../public ../docs",
+    "ghp": "gatsby build --prefix-paths && gh-pages -d public",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
