@@ -1,0 +1,17 @@
+@mixin g-flex-container__col {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@mixin g-flex-container__row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-flex-container__default {
+  @include g-flex-container__row;
+}

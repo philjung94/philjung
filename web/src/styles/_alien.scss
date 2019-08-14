@@ -1,0 +1,46 @@
+@import "_variables", "_container";
+.c-alien-container {
+  @include g-flex-container__col;
+  width: 400px;
+  height: 100px;
+  @media($m-min-width-md) {
+    @include g-flex-container__row;
+  }
+}
+
+.c-alien-wrapper {
+  position: absolute;
+  top: 15rem;
+  width: 400px;
+  height: 100px;
+}
+
+#c-img__alien_svg__alien {
+  position: relative;
+  animation: jiggle 5s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes move-right {
+  0% {
+    transform: translateX(-100vw);
+  }
+  80% {
+    transform: translateX(200vw);
+  }
+  100% {
+    transform: translateX(250vw);
+  }
+}
+
+@keyframes jiggle {
+  33% {
+    transform: translate(5vw, 7vw);
+  }
+  66% {
+    transform: translate(7vw, 0vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}

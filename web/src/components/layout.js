@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
-import "../styles/_layout.scss"
+import "../styles/index.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ bg, children }) => {
   const data = useStaticQuery(graphql`
     query layoutQuery {
       site {
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="layout-container__flex">
+    <div className="c-layout-container__default" style={{backgroundImage: `url(${bg})`}}>
       <Header {...data} />
       {children}
     </div>
@@ -25,6 +25,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  bg: PropTypes.string
 }
 
 export default Layout

@@ -1,34 +1,84 @@
-@import "_variables";
+@import "_variables", "_container";
 
 body, div {
   margin: 0;
   padding: 0;
-  font-family: $ff-font__primary;
-  color: $color-gray__1;
+  font-family: $g-font-primary;
+  color: $g-color-gray;
+}
+
+input {
+  margin: 0em;
+  max-width: 100%;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  font-family: $g-font-primary;
+  padding: 0.5rem 1rem;
+  background: $g-color-white;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  color: $g-color-black;
+  transition: background 0.5s ease;
+  &:hover {
+    background: $g-color-black;
+    color: $g-color-white;
+  };
+}
+
+button {
+  cursor: pointer;
+  min-height: 1rem;
+  outline: none;
+  border: none;
+  vertical-align: baseline;
+  background: $g-color-gray;
+  color: $g-color-black;
+  font-family: $g-font-primary;
+  margin: 0rem 0.5rem;
+  padding: 0.65rem 1.5rem;
+  font-weight: bold;
+  line-height: 0.65rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+          box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.5s ease;
+  &:hover {
+    background: $g-color-black;
+    color: $g-color-white;
+  };
 }
 
 p {
   margin: 0.5rem;
 }
 
-%layout-container {
+li {
+  text-align: left; 
+}
+
+.divider {
+  width: 1rem;
+  height: 1rem;
+}
+
+%c-layout-container {
+  min-height: $layout-min-height;
   max-width: $layout-max-width;
   margin: 0 auto;
   background-color: #2c2c36;
 }
 
-.layout-container__flex {
-  @extend %layout-container;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: flex-start;
+.c-layout-container__default {
+  @extend %c-layout-container;
+  @include g-flex-container__col;
 }
 
-.layout-container__linelength {
+.c-layout-container__linelength {
   max-width: $layout-linelength-width;
 }
 
 .gatsby-image-wrapper img {
-   object-fit: contain !important; // !important to override the element style
+   object-fit: contain !important;
 }

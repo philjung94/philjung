@@ -1,26 +1,20 @@
-@import "_variables";
+@import "_variables", "_container";
 
 .c-header-title {
-  font-size: $ff-size__sm;
-  @media(min-width: $m-min-width__md) {
-    font-size: $ff-size__md;
-  }
-  @media(min-width: $m-min-width__lg) {
-    font-size: $ff-size__lg;
+  font-size: $g-size-md;
+  @media(min-width: $m-min-width-lg) {
+    font-size: $g-size-lg;
   }
 }
 
 .c-header-container {
+  @include g-flex-container__row;
   background-color: #2c2c36;
   padding: 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 4rem;
   a {
-    color: white;
+    color: $g-color-gray;
     text-decoration: none;
   }
 }

@@ -1,0 +1,27 @@
+@import "_variables";
+
+.c-speech-bubble {
+  position: relative;
+  background: $g-color-white;
+  border-radius: .4rem;
+  top: 100px;
+  width: 10rem;
+  height: 5rem;
+  margin: 0;
+  color: $g-color-black;
+}
+
+.c-speech-bubble:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-bottom-color: #00aabb;
+  border-top: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-top: -20px;
+}

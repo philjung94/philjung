@@ -1,0 +1,13 @@
+@import "_variables", "_container";
+
+.c-segment-container__default {
+  @include g-flex-container__col;
+  padding: 2rem;
+  text-align: center;
+  width: 80vw;
+  min-height: 100px;
+  background-color: rgba(10, 10, 10, 0.5);
+  @media(min-width: $m-min-width-md) {
+    width: 40vw;
+  }
+}

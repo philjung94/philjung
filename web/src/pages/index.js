@@ -1,53 +1,73 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import React, { useState } from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from "../components/hero"
-import Button from "../components/button"
+import Alien from "../components/alien"
+import Segment from "../components/segment"
+import Iconography from "../components/icon-list"
+import Stars from "../images/c-img__stars.svg"
 
-const GithubWidget = ({icon, data}) => (
-  <div 
-    style={{
-      display: 'flex', 
-      flexFlow: 'column nowrap', 
-      justifyContent: 'center', 
-      alignItems: 'center'
-    }}
-  >
-    <div style={{display: 'flex', flexFlow: 'row nowrap', alignItems: 'center'}}>
-      <a href="https://github.com/philjung94">
-        <Img fixed={icon.childImageSharp.fixed}/>
-      </a>
-    </div>
-    {/*<Img 
-      style={{width: "40rem", height: "20rem"}} 
-      fluid={ghData.childImageSharp.fluid}
-    />*/}
-  </div>
-)
+const Divider = ({height}) => (<div className="divider" style={{height}}/>)
 
-export default function Home({data}) {
+function Home({data}) {
+  const icons = Object.entries(data).map(([key, value]) => ({
+    href: ({
+      liIcon: "https://www.linkedin.com/in/phil-j-99620992/",
+      ghIcon: "https://github.com/philjung94"
+    }[key]) || "/",
+    src: value.childImageSharp.fixed
+  }))
   return (
-    <Layout>
+    <Layout bg={Stars}>
       <SEO title="Phil Jung"/>
-      <Hero>
-        <p>Frontend Developer</p>
-        <p> ❤️ React </p>
-        <br/>
-        <GithubWidget icon={data.ghIcon} data={data.ghData}/>
-      </Hero> 
-      <div style={{width: "100px", height: "4000px"}}/>
+      <p>Frontend Developer</p>
+      <p> <span role="img" aria-label="Heart">❤️</span> React </p>
+      <Divider/>
+      <Iconography icons={icons}/>
+      <Divider height="2rem"/>
+      <AlienWidget/>
     </Layout>
+  )
+}
+
+function AlienWidget() {
+  const init = {toSpeak: '', input: ''}
+  const [speech, setSpeech] = useState({...init})
+  const onClick = () => setSpeech({toSpeak: speech.input, input: ''})
+  const onChange = (e) => setSpeech({input: e.target.value.slice(0, 40)}) // Cap the length
+  return (
+    <Segment>
+      <Alien toSpeak={speech.toSpeak} done={() => setSpeech({...init})}/> 
+      <h1>Meet Alex - a sassy alien.</h1>
+      <ol>
+        <li>Get your headphones on.</li>
+        <li>Click on him to hear him talk.</li>
+        <li>Type him something else to say!</li>
+      </ol>
+      <Divider/>
+      <div className="c-flex-container__default">
+        <input 
+          onBlur={onClick} 
+          onKeyDown={(e) => e.key === "Enter" && onClick()}
+          placeholder="Be sensible." 
+          value={speech.input} 
+          onChange={onChange}
+        />
+        <button onClick={onClick}>
+          Speak
+        </button>
+      </div>
+      <Divider height="2rem"/>
+    </Segment>
   )
 }
 
 export const query = graphql`
   query {
-    ghData: file(relativePath: { eq: "c-img-2.png" }) {
+    liIcon: file(relativePath: { eq: "i-li__blue.png" }) {
       childImageSharp {
-        fluid(maxWidth: 900, quality: 100) {
-          ...GatsbyImageSharpFluid
+        fixed(width: 32, height: 32) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -60,3 +80,5 @@ export const query = graphql`
     }
   }
 `
+
+export default Home
