@@ -1,6 +1,8 @@
 # Phil's cool alien thing
 Not much, just a talking alien.
 
+`cd web`
+
 ## `yarn`
 First install modules. Then,
 
