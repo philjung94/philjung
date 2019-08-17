@@ -18,6 +18,7 @@ export default function Home({data}) {
   }))
   return (
     <Layout bg={Stars}>
+      <SEO title="Phil Jung"/>
       <Intro/>
       <Divider/>
       <Iconography icons={icons}/>

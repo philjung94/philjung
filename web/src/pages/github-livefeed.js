@@ -8,6 +8,7 @@ export default function BoganAlien() {
   return (
     <Layout bg={Stars}>
       <Intro/>
+      <Divider/>
     </Layout>
   )
 }
