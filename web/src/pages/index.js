@@ -5,13 +5,14 @@ import SEO from "../components/seo"
 import Iconography from "../components/icon-list"
 import Stars from "../images/c-img__stars.svg"
 import Divider from "../components/divider"
+import Segment from "../components/segment"
 import Alien from "../components/alien"
 const AlienWidget = Alien.Widget
 
-function Home({data}) {
+export default function Home({data}) {
   const icons = Object.entries(data).map(([key, value]) => ({
     href: ({
-      liIcon: "https://www.linkedin.com/in/philjung94/",
+      liIcon: "https://www.linkedin.com/in/pjung319/",
       ghIcon: "https://github.com/philjung94"
     }[key]) || "/",
     src: value.childImageSharp.fixed
@@ -25,6 +26,7 @@ function Home({data}) {
       <Iconography icons={icons}/>
       <Divider height="2rem"/>
       <AlienWidget/>
+      <Segment.MainMenu/>
     </Layout>
   )
 }
@@ -47,5 +49,3 @@ export const query = graphql`
     }
   }
 `
-
-export default Home
