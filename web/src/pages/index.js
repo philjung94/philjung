@@ -1,18 +1,17 @@
-import React, { useState } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Alien from "../components/alien"
-import Segment from "../components/segment"
 import Iconography from "../components/icon-list"
 import Stars from "../images/c-img__stars.svg"
-
-const Divider = ({height}) => (<div className="divider" style={{height}}/>)
+import Divider from "../components/divider"
+import Alien from "../components/alien"
+const AlienWidget = Alien.Widget
 
 function Home({data}) {
   const icons = Object.entries(data).map(([key, value]) => ({
     href: ({
-      liIcon: "https://www.linkedin.com/in/phil-j-99620992/",
+      liIcon: "https://www.linkedin.com/in/philjung94/",
       ghIcon: "https://github.com/philjung94"
     }[key]) || "/",
     src: value.childImageSharp.fixed
@@ -27,38 +26,6 @@ function Home({data}) {
       <Divider height="2rem"/>
       <AlienWidget/>
     </Layout>
-  )
-}
-
-function AlienWidget() {
-  const init = {toSpeak: '', input: ''}
-  const [speech, setSpeech] = useState({...init})
-  const onClick = () => setSpeech({toSpeak: speech.input, input: ''})
-  const onChange = (e) => setSpeech({input: e.target.value.slice(0, 40)}) // Cap the length
-  return (
-    <Segment>
-      <Alien toSpeak={speech.toSpeak} done={() => setSpeech({...init})}/> 
-      <h1>Meet Alex - a sassy alien.</h1>
-      <ol>
-        <li>Get your headphones on.</li>
-        <li>Click on him to hear him talk.</li>
-        <li>Type him something else to say!</li>
-      </ol>
-      <Divider/>
-      <div className="c-flex-container__default">
-        <input 
-          onBlur={onClick} 
-          onKeyDown={(e) => e.key === "Enter" && onClick()}
-          placeholder="Be sensible." 
-          value={speech.input} 
-          onChange={onChange}
-        />
-        <button onClick={onClick}>
-          Speak
-        </button>
-      </div>
-      <Divider height="2rem"/>
-    </Segment>
   )
 }
 

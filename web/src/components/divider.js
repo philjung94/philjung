@@ -1,0 +1,1 @@
+import React from "react";export default ({height}) => (<div className="divider" style={{height}}/>);
