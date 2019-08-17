@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Intro from "../components/intro"
 import SEO from "../components/seo"
 import Iconography from "../components/icon-list"
 import Stars from "../images/c-img__stars.svg"
@@ -17,9 +18,7 @@ export default function Home({data}) {
   }))
   return (
     <Layout bg={Stars}>
-      <SEO title="Phil Jung"/>
-      <p>Frontend Developer</p>
-      <p> <span role="img" aria-label="Heart">❤️</span> React </p>
+      <Intro/>
       <Divider/>
       <Iconography icons={icons}/>
       <Divider height="2rem"/>
