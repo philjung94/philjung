@@ -3,39 +3,80 @@
 .c-cardlist-container__flex {
   @include g-flex-container__col;
   align-items: center;
-  @media (--media-min-medium) {
+  @media (min-width: $m-min-width-lg) {
     @include g-flex-container__row;
+    flex-flow: row wrap;
   }
 }
 
 .c-card-container {
-  height: 300px;
-  width: 250px;
-  border: 5px solid hsl(0, 0%, 40%);
-  padding: 5px;
-  background: hsl(0, 0%, 20%);
-  outline: 5px solid hsl(0, 0%, 60%);
-  box-shadow:
-      0 0 0 10px hsl(0, 0%, 80%),
-      0 0 0 15px hsl(0, 0%, 90%);
+  cursor: pointer;
+  max-width: 100%;
   position: relative;
-  @media (--media-min-small) {
-    margin-bottom: 0px;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 250px;
+  min-height: 0px;
+  background: $g-color-white;
+  border-radius: 3px;
+  padding: 0em;
+  margin: 1rem;
+  border: none;
+  -webkit-box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
+          box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
+  -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
+  transition: box-shadow 0.1s ease, transform 0.1s ease, -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
 }
 
 .c-card-img {
-  height: 150px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 0em;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 0.2rem rgba(80, 80, 80, 0.5) solid;
+}
+
+.c-card-img > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit;
+}
+
+.c-card-title {
+  color: $g-color-black;
+  background-color: $g-color-gray;
+  font-weight: bold;
+  margin: 0em;
+  padding: 1em 1em;
 }
 
 .c-card-content {
-  padding-left: 20px;
-  padding-right: 20px;
-  color: #666
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border: none;
+  border-top: 1px solid rgba(34, 36, 38, 0.1);
+  background: none;
+  margin: 0em;
+  padding: 1em 1em;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-size: 1em;
+  border-radius: 0em;
+  color: $g-color-darkgray !important;
 }
 
-.cardBlockHeader {
-  font-size: 1.4em;
-  margin: 20px;
-  letter-spacing: 2px;
-}

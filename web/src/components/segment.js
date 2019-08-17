@@ -1,6 +1,8 @@
 import React from "react"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import PropTypes from "prop-types"
-
+import CardList from "./card-list"
+import Divider from "./divider"
 export default function Segment({children}) {
   return (
     <div className="c-segment-container__default">
@@ -10,30 +12,57 @@ export default function Segment({children}) {
 }
 
 Segment.MainMenu = function SegmentDemo() {
+  const {alien, livefeed, playground} = useStaticQuery(
+    graphql`
+      query {
+        alien: file(relativePath: { eq: "c-img-3.png" }) {
+          childImageSharp {
+            fixed(width: 250, height: 250) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }      
+        playground: file(relativePath: { eq: "c-img-4.png" }) {
+          childImageSharp {
+            fixed(width: 250, height: 250) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }      
+        livefeed: file(relativePath: { eq: "c-img-1.png" }) {
+          childImageSharp {
+            fixed(width: 250, height: 250) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }      
+      }
+    `
+  )
+  const mapImgToFixed = i => (( i || {} )["childImageSharp"] || {}).fixed
   return (
     <Segment>
-      <h1>Code examples and demos</h1>
-        <button>Bogan alien</button>
-        <button>Github livefeed</button>
-        <button>Swipeable views</button>
-        <button>Todo list w/ DnD</button>
-      <h1>Past client projects</h1>
-        <button>Axis - Student Hub</button>
-        <button>Easiar - iOS App</button>
-      <h1>Experience</h1>
-        <button>Auggd - frontend developer</button>
-        <button>Academy Xi - full stack developer</button>
-        <button>Academy Xi - AR and VR mentor</button>
-      <h1>Skills</h1>
-        <ul>
-          <li>HTML5</li> 
-          <li>CSS3, SASS</li>
-          <li>Vanilla JS</li>
-          <li>React.js</li>
-          <li>Node.js</li>
-          <li>Web Design</li>
-          <li>Unity C#</li>
-        </ul>
+      <h1>Code demos</h1>
+        <CardList>
+          <Link to="/bogan-alien">
+            <CardList.Card title="Bogan alien" img={mapImgToFixed(alien)}/>
+          </Link>
+          <Link to="/my-playground">
+            <CardList.Card title="My playground" img={mapImgToFixed(playground)}/>
+          </Link>
+          <Link to="/github-livefeed">
+            <CardList.Card title="Github livefeed" img={mapImgToFixed(livefeed)}/>
+          </Link>
+        </CardList>
+      <h1>Client projects</h1>
+        <a href="https://axis.academyxi.com">
+          <button>Axis - Students Hub</button>
+        </a>
+        <br/>
+        <a href="https://apps.apple.com/au/app/easiar-viewer/id886516339">
+          <button>Easiar - Mobile App</button>
+        </a>
+      <Divider height={"2rem"}/>
     </Segment>
   )
 }

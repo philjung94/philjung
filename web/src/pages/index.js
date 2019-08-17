@@ -6,8 +6,6 @@ import Iconography from "../components/icon-list"
 import Stars from "../images/c-img__stars.svg"
 import Divider from "../components/divider"
 import Segment from "../components/segment"
-import Alien from "../components/alien"
-const AlienWidget = Alien.Widget
 
 export default function Home({data}) {
   const icons = Object.entries(data).map(([key, value]) => ({
@@ -25,7 +23,6 @@ export default function Home({data}) {
       <Divider/>
       <Iconography icons={icons}/>
       <Divider height="2rem"/>
-      <AlienWidget/>
       <Segment.MainMenu/>
     </Layout>
   )

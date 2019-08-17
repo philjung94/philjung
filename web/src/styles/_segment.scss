@@ -1,5 +1,4 @@
 
-
 .c-segment-container__default {
   @include g-flex-container__col;
   padding: 2rem;
@@ -7,6 +6,7 @@
   width: 80vw;
   min-height: 100px;
   background-color: rgba(10, 10, 10, 0.5);
+  border-radius: 3px;
   @media(min-width: $m-min-width-md) {
     width: 40vw;
   }

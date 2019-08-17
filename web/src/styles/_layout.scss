@@ -1,4 +1,7 @@
 
+a {
+  text-decoration: none;
+}
 
 body, div {
   margin: 0;
@@ -34,6 +37,7 @@ button {
   background: $g-color-gray;
   color: $g-color-black;
   font-family: $g-font-primary;
+  border-radius: 3px;
   margin: 0rem 0.5rem;
   padding: 0.65rem 1.5rem;
   font-weight: bold;
