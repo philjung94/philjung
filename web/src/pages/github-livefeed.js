@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import https from "https"
 import Layout from "../components/layout"
 import Stars from "../images/c-img__stars.svg"

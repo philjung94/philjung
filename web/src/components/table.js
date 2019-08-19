@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import nonce from "../helpers/nonce"
 
 export default function MyTable({columns, dataSource}) {
